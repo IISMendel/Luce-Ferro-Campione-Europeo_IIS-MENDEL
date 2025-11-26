@@ -653,13 +653,13 @@
                 Cinque fotogrammi consecutivi dell’arrivo, riprodotti in loop come un breve video.
             </p>
             <div class="sequence-slider">
-                <img src="foto6.jpg"  alt="Sequenza vittoria 1" onerror="this.remove()">
-                <img src="foto7.jpg"  alt="Sequenza vittoria 2" onerror="this.remove()">
-                <img src="foto8.jpg"  alt="Sequenza vittoria 3" onerror="this.remove()">
-                <img src="foto9.jpg"  alt="Sequenza vittoria 4" onerror="this.remove()">
-                <img src="foto10.jpg" alt="Sequenza vittoria 5" onerror="this.remove()">
-            </div>
-        </div>
+    <img src="foto6.jpg"  alt="Sequenza vittoria 1">
+    <img src="foto7.jpg"  alt="Sequenza vittoria 2">
+    <img src="foto8.jpg"  alt="Sequenza vittoria 3">
+    <img src="foto9.jpg"  alt="Sequenza vittoria 4">
+    <img src="foto10.jpg" alt="Sequenza vittoria 5">
+</div>
+
 
         <!-- INTRO -->
         <div class="intro-box">
@@ -758,16 +758,15 @@
     </footer>
 
     <!-- SLIDER SEQUENZA: JS -->
-    <script>
-(function() {
+<script>
+window.addEventListener('load', function () {
     const container = document.querySelector('.sequence-slider');
     if (!container) return;
 
-    const imgsAll = Array.from(container.querySelectorAll('img'));
-    if (imgsAll.length === 0) return;
+    // Prende SOLO le immagini che risultano caricate correttamente
+    let imgs = Array.from(container.querySelectorAll('img'))
+        .filter(img => img.complete && img.naturalWidth > 0);
 
-    // Esclude eventuali immagini rimosse dall'onerror
-    const imgs = imgsAll.filter(img => img.isConnected);
     if (imgs.length === 0) return;
 
     let index = 0;
@@ -784,10 +783,12 @@
         index = (index + 1) % imgs.length;   // 6→7→8→9→10→di nuovo 6
         imgs[index].classList.add('active');
     }, frameTime);
-})();
+});
 </script>
+
 
 </body>
 </html>
+
 
 
