@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCA FERRO | Campione Europeo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056d2; /* Blu Elettrico */
+            --accent: #FFD700;  /* Oro Vittoria */
+            --energy: #ff3300;  /* Rosso/Arancio Energetico */
+            --dark: #111827;
+            --light: #f4f7f6;
+            --muted: #6b7280;
+            --gradient-bg: linear-gradient(135deg, var(--primary) 0%, #00a896 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(rgba(0, 86, 210, 0.15) 0.5px, transparent 0.5px),
+                radial-gradient(rgba(0, 86, 210, 0.08) 0.5px, var(--light) 0.5px);
+            background-size: 26px 26px;
+            background-position: 0 0, 13px 13px;
+        }
+
+        /* --- HERO --- */
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding: 3.5rem 1.5rem 6.5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 0 0, rgba(255,255,255,0.18), transparent 55%),
+                radial-gradient(circle at 100% 0, rgba(255,255,255,0.12), transparent 55%);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-style: italic;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.45);
+            line-height: 1;
+        }
+
+        header .main-headline {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-top: 1.3rem;
+            line-height: 1.4;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header .main-headline span {
+            color: var(--accent);
+        }
+
+        header .details-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,0,0,0.35);
+            padding: 0.6rem 1.3rem;
+            border-radius: 999px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.35);
+            font-size: 0.95rem;
+        }
+
+        header .details-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(255,215,0,0.25);
+        }
+
+        /* --- MICRO MENU --- */
+        .micro-nav {
+            margin: 2rem auto 0;
+            max-width: 520px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 0.25rem;
+            padding: 0.3rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 10px 26px rgba(15,23,42,0.35);
+        }
+
+        .micro-nav a {
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            border: none;
+            white-space: nowrap;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .micro-nav a:hover,
+        .micro-nav a:focus-visible {
+            background: var(--accent);
+            color: #111827;
+        }
+
+        @media (max-width: 768px) {
+            .micro-nav {
+                max-width: 100%;
+                padding: 0.25rem;
+                margin-top: 1.5rem;
+            }
+            .micro-nav a {
+                font-size: 0.72rem;
+                padding: 0.35rem 0.7rem;
+            }
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.2rem 3rem;
+            }
+        }
+
+        /* --- FOTO PRINCIPALE --- */
+        .hero-photo-wrapper {
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1.5rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-photo-wrapper {
+                margin-top: -2.5rem;
+                padding-bottom: 1.5rem;
+            }
+        }
+
+        .hero-photo-frame {
+            display: inline-block;
+            position: relative;
+            border-radius: 1.6rem;
+            padding: 0.4rem;
+            background: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.2));
+            box-shadow:
+                0 18px 40px rgba(0,0,0,0.25),
+                0 0 0 1px rgba(0,0,0,0.08);
+            transform: translateY(4px);
+            transition: all 0.3s ease-out;
+        }
+
+        .hero-photo-inner {
+            border-radius: 1.35rem;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+
+        .hero-photo-frame:hover {
+            transform: translateY(0) scale(1.01);
+            box-shadow:
+                0 24px 55px rgba(0,0,0,0.35),
+                0 0 0 1px rgba(0,0,0,0.12);
+        }
+
+        .hero-photo {
+            max-width: 100%;
+            height: auto;
+            max-height: 520px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .missing-photo-alert {
+            padding: 2rem;
+            background: #fef2f2;
+            color: #991b1b;
+            font-weight: 600;
+            border-radius: 1rem;
+            border: 2px dashed #fecaca;
+            font-size: 0.95rem;
+        }
+
+        /* --- SEQUENZA FOTO (SLIDER) --- */
+        .sequence-wrapper {
+            max-width: 900px;
+            margin: 1rem auto 3rem;
+            text-align: center;
+        }
+
+        .sequence-subtitle {
+            margin: 0 0 1.4rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .sequence-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+            background: #000;
+        }
+
+        .sequence-slider img {
+            width: 100%;
+            display: none;
+        }
+
+        .sequence-slider img.active {
+            display: block;
+        }
+
+        /* --- INTRO --- */
+        .intro-box {
+            background: white;
+            padding: 2.8rem 2.5rem;
+            margin: 1.5rem auto 3.5rem;
+            border-radius: 18px;
+            box-shadow: 0 16px 45px rgba(15,23,42,0.08);
+            text-align: center;
+            max-width: 900px;
+            border-top: 6px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::after {
+            content: "EUROPEO";
+            position: absolute;
+            right: -40px;
+            bottom: -20px;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: rgba(148,163,184,0.12);
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .intro-icon {
+            font-size: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            background: rgba(250,204,21,0.16);
+            margin-bottom: 1rem;
+        }
+
+        .intro-box p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--muted);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .intro-box p strong {
+            color: var(--dark);
+        }
+
+        /* --- DATI TECNICI --- */
+        .tech-data-panel {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            background: white;
+            padding: 2.2rem 2.1rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(15,23,42,0.08);
+            border-left: 5px solid var(--primary);
+        }
+
+        .tech-data-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.7rem;
+            text-transform: uppercase;
+            font-style: italic;
+            font-size: 1.1rem;
+            letter-spacing: 0.12em;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.98rem;
+        }
+
+        .tech-table tr {
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .tech-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .tech-table th {
+            padding: 0.9rem 0.5rem 0.9rem 0;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            width: 40%;
+            letter-spacing: 0.08em;
+        }
+
+        .tech-table td {
+            padding: 0.9rem 0.5rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--dark);
+        }
+
+        .tech-table td span {
+            color: var(--muted);
+        }
+
+        /* --- TITOLI SEZIONE --- */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin: 3.5rem 0 1.8rem 0;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.12em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 70%;
+            max-width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--energy));
+            border-radius: 999px;
+        }
+
+        /* --- GALLERIA --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 22px rgba(15,23,42,0.12);
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+            border: 3px solid #ffffff;
+            background-color: #e5e7eb;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease-out;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 35px rgba(15,23,42,0.2);
+            border-color: var(--accent);
+            z-index: 2;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- RASSEGNA STAMPA --- */
+        .press-section {
+            margin-top: 4.5rem;
+            position: relative;
+        }
+
+        .press-bg-decoration {
+            position: absolute;
+            top: -40px;
+            left: -10%;
+            width: 120%;
+            height: 260px;
+            background:
+                radial-gradient(circle at 0 0, rgba(0,86,210,0.12), transparent 60%),
+                radial-gradient(circle at 100% 0, rgba(0,86,210,0.16), transparent 65%);
+            opacity: 0.35;
+            transform: rotate(-2deg);
+            z-index: -1;
+        }
+
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: white;
+            padding: 1.8rem 1.7rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.1);
+            border-left: 8px solid var(--accent);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .article-card::before {
+            content: 'CX';
+            position: absolute;
+            right: -10px;
+            bottom: -30px;
+            font-size: 4.2rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            opacity: 0.06;
+            transform: rotate(-12deg);
+        }
+
+        .article-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--primary);
+            box-shadow: 10px 18px 40px rgba(15,23,42,0.18);
+        }
+
+        .article-source {
+            font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.35rem;
+            font-size: 0.8rem;
+        }
+
+        .article-headline {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0.5rem 0 0.4rem;
+            line-height: 1.3;
+        }
+
+        .article-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+        
+        .btn-press {
+            display: inline-block;
+            margin-top: 1.4rem;
+            padding: 0.7rem 1.7rem;
+            background: linear-gradient(45deg, var(--primary), var(--energy));
+            color: white;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.8rem;
+            box-shadow: 0 8px 22px rgba(0, 86, 210, 0.4);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            align-self: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-press:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 86, 210, 0.55);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3.5rem 2rem 3rem;
+            margin-top: 5rem;
+            background: var(--dark);
+            color: white;
+            clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 0 0, rgba(148,163,184,0.55), transparent 60%);
+            opacity: 0.55;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer .hash {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        footer .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--energy));
+            margin: 0 auto 1.4rem auto;
+            border-radius: 999px;
+        }
+
+        footer .info {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            header .main-headline {
+                font-size: 1.3rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .intro-box {
+                padding: 2.1rem 1.7rem;
+            }
+            .intro-box p {
+                font-size: 1.05rem;
+            }
+            .tech-data-panel {
+                padding: 1.9rem 1.5rem;
+            }
+            .gallery-item img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <header>
+        <h1>Luca Ferro</h1>
+        <div class="main-headline">
+            Il <span>nostro studente</span> è diventato Campione Europeo di Ciclocross
+        </div>
+        <div class="details-badge">
+            Categoria Allievi 1° anno • 16 Novembre 2025 • Samorin
+        </div>
+
+        <nav class="micro-nav" aria-label="Navigazione rapida">
+            <a href="#top">Gara</a>
+            <a href="#gallery">Momenti di gloria</a>
+            <a href="#press">Rassegna stampa</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- FOTO PRINCIPALE (puoi riutilizzare una delle 10 o tenerne una dedicata) -->
+        <div class="hero-photo-wrapper">
+            <div class="hero-photo-frame">
+                <div class="hero-photo-inner">
+                    <img src="luca_vittoria.jpg" alt="Il trionfo di Luca Ferro" class="hero-photo"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <div class="missing-photo-alert" style="display: none;">
+                        ⚠️ Carica il file <strong>luca_vittoria.jpg</strong> nella repository (o rinomina una delle foto).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEQUENZA DELLA VITTORIA (foto6–foto10) -->
+        <div class="sequence-wrapper">
+            <h2 class="section-title">Sequenza della vittoria</h2>
+            <p class="sequence-subtitle">
+                Cinque fotogrammi consecutivi dell’arrivo, riprodotti in loop come un breve video.
+            </p>
+            <div class="sequence-slider">
+                <img src="foto6.jpg"  alt="Sequenza vittoria 1" onerror="this.remove()">
+                <img src="foto7.jpg"  alt="Sequenza vittoria 2" onerror="this.remove()">
+                <img src="foto8.jpg"  alt="Sequenza vittoria 3" onerror="this.remove()">
+                <img src="foto9.jpg"  alt="Sequenza vittoria 4" onerror="this.remove()">
+                <img src="foto10.jpg" alt="Sequenza vittoria 5" onerror="this.remove()">
+            </div>
+        </div>
+
+        <!-- INTRO -->
+        <div class="intro-box">
+            <span class="intro-icon">🏆</span>
+            <p>
+                Con immenso orgoglio annunciamo che uno studente del nostro istituto ha conquistato il
+                <strong>Titolo Europeo</strong>. Un risultato straordinario che testimonia impegno, talento e passione.
+                L’intera comunità scolastica si congratula per questo successo storico.
+            </p>
+        </div>
+
+        <!-- DATI TECNICI -->
+        <div class="tech-data-panel">
+            <h3 class="tech-data-title">Dati ufficiali di gara</h3>
+            <table class="tech-table">
+                <tr>
+                    <th>Tempo finale</th>
+                    <td>33' 59"</td>
+                </tr>
+                <tr>
+                    <th>Podio</th>
+                    <td>
+                        1. L. Ferro (ITA)<br>
+                        <span>2. D. Szilasi (HUN) +3"<br>
+                        3. J. Pancik (SVK) +4"</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Media oraria</th>
+                    <td>24.72 km/h</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>X-Bionic Sphere, Samorin (SVK)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- GALLERIA: foto1–foto5 -->
+        <div id="gallery">
+            <h2 class="section-title">Momenti di gloria</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="foto1.jpg" alt="Momento 1" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="foto2.jpg" alt="Momento 2" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="foto3.jpg" alt="Momento 3" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="foto4.jpg" alt="Momento 4" onerror="this.parentElement.style.display='none'"></div>
+                <div class="gallery-item"><img src="foto5.jpg" alt="Momento 5" onerror="this.parentElement.style.display='none'"></div>
+            </div>
+        </div>
+
+        <!-- RASSEGNA STAMPA -->
+        <div class="press-section" id="press">
+            <div class="press-bg-decoration"></div> 
+            <h2 class="section-title">Dicono di lui</h2>
+            
+            <div class="articles-list">
+                <div class="article-card">
+                    <div>
+                        <div class="article-source">BiciTV.it</div>
+                        <h3 class="article-headline">Luca Ferro (Bustese Olonia) è il nuovo campione europeo</h3>
+                        <p>La notizia ufficiale della vittoria e la cronaca della gara di Samorin.</p>
+                    </div>
+                    <a href="https://www.bicitv.it/2025/11/16/europei-ciclocross.luca-ferro-bustese-olonia-e-il-nuovo-campione-tra-gli-allievi-1%C2%B0anno/" target="_blank" class="btn-press">Leggi l'articolo</a>
+                </div>
+
+                <div class="article-card">
+                    <div>
+                        <div class="article-source">Tuttobiciweb</div>
+                        <h3 class="article-headline">Europei Young: Il trionfo del quattordicenne varesino</h3>
+                        <p>Approfondimento sulla prestazione straordinaria in Slovacchia.</p>
+                    </div>
+                    <a href="https://www.tuttobiciweb.it/article/2025/11/16/1763297889/ciclismo-ciclocross-giovani-talenti-campionato-europeo" target="_blank" class="btn-press">Leggi l'articolo</a>
+                </div>
+
+                <div class="article-card">
+                    <div>
+                        <div class="article-source">L'Angolo del Pirata</div>
+                        <h3 class="article-headline">Dominio azzurro: Ferro conquista l'oro europeo</h3>
+                        <p>Tutte le classifiche e i dettagli della giornata storica per il ciclocross giovanile.</p>
+                    </div>
+                    <a href="https://www.langolodelpirata.it/luca-ferro-della-bustese-olonia-e-campione-europeo-2025-domina-la-youth-cx-a-samorin-in-slovacchia-ecco-le-classifiche/" target="_blank" class="btn-press">Leggi l'articolo</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="hash">#LucaFerroChamp</p>
+        <div class="divider"></div>
+        <p class="info">
+            Questa pagina è stata creata, con orgoglio, dall'<br>
+            <strong>IIS MENDEL di Villa Cortese (MI)</strong>
+        </p>
+    </footer>
+
+    <!-- SLIDER SEQUENZA: JS -->
+    <script>
+        (function() {
+            const container = document.querySelector('.sequence-slider');
+            if (!container) return;
+
+            const imgs = Array.from(container.querySelectorAll('img'));
+            if (imgs.length === 0) return;
+
+            // immagini eventualmente rimosse dall'onerror non sono più nel DOM
+            const validImgs = imgs.filter(img => img.isConnected);
+            if (validImgs.length === 0) return;
+
+            let index = 0;
+            validImgs.forEach(img => img.classList.remove('active'));
+            validImgs[0].classList.add('active');
+
+            if (validImgs.length === 1) return;
+
+            setInterval(() => {
+                validImgs[index].classList.remove('active');
+                index = (index + 1) % validImgs.length;
+                validImgs[index].classList.add('active');
+            }, 350); // 0,35 secondi per fotogramma
+        })();
+    </script>
+</body>
+</html>
